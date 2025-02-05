@@ -1,40 +1,44 @@
-//declaracion de lista
-let amigos =[];
-//agregar amigos a una lista
-function agregarAmigos() {
-    const nombreNuevo = document.getElementById("amigo");
-    //permite eliminar espacios en blanco para evitar confuciones al leer la lista
-    nombre = nombreNuevo.value.trim();
+let listaAmigos = []; // Lista para almacenar los nombres
+
+// Función para habilitar o deshabilitar el botón de "Añadir"
+function manejarBoton() {
+    let input = document.getElementById("amigo");
+    let boton = document.querySelector(".button-add");
+    boton.disabled = input.value.trim() === ""; // Deshabilitar si el campo está vacío o tiene solo espacios
+}
+
+// Función para agregar amigos a la lista
+function agregarAmigo() {
+    let input = document.getElementById("amigo");
+    let nombre = input.value.trim();
     let lista = document.getElementById("listaAmigos");
 
-    //validar que los nombres ingresados sean correctos
-    if (nombre === ''){
-        alert('Por favor, ingrese un nombre válido');
-        return;//Detiene la ejecucion si el campo esta vacio.
+    if (nombre === "") {
+        // Mostrar una alerta si el nombre es vacío o tiene solo espacios
+        alert("Por favor, ingresa un nombre válido.");
+        return; // No agregar el nombre a la lista si es inválido
     }
 
-    //Armado de la lista
-    amigos.push(nombre);
+    listaAmigos.push(nombre);
 
-    //mostrar el nombre en la pantalla
-    let li = document.createAttribute(li);
+    // Agregar el nombre a la lista en pantalla
+    let li = document.createElement("li");
     li.textContent = nombre;
-    lista.appenChild(li);// agrega el nombre a la lista
+    lista.appendChild(li);
 
-    nombre.value = ""; //limpia el campo de entrada despues de agregar el nombre
+    input.value = ""; // Limpiar el campo de entrada
+    manejarBoton(); // Deshabilitar el botón hasta que se ingrese un nuevo nombre
 }
-//sortear aleatoriamente los nombres en la lista
-function sortearAmigos() {
-    if (amigos.length < 2) {
-        alert('Agrega al menos dos nombres para hacer el sorteo');
-        return
+
+// Función para sortear un amigo de manera aleatoria
+function sortearAmigo() {
+    if (listaAmigos.length < 2) {
+        alert("Debes ingresar al menos 2 nombres antes de iniciar el sorteo.");
+        return;
     }
-    let indiceDeAmigoGanador = Math.floor(Math.random()*amigos.length);
-    let amigoGanador = amigos[indiceDeAmigoGanador];//obtiene el nombre ganador
-   
-}
-//muestra el resultado
-function mostrarResultado(ganador) {
-    let resultado = document.getElementById("resultado");
-    resultado.innerHTML = "<li>🎉 El amigo secreto es: <strong>" + ganador + "</strong> 🎉</li>"
+
+    // Sorteo aleatorio
+    let ganador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+
+    asignarTextoElemento("#resultado", `El ganador es: ${ganador}`);
 }
