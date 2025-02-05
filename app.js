@@ -4,7 +4,7 @@ let listaAmigos = []; // Lista para almacenar los nombres
 function manejarBoton() {
     let input = document.getElementById("amigo");
     let boton = document.querySelector(".button-add");
-    boton.disabled = input.value.trim() === ""; // Deshabilitar si el campo está vacío o tiene solo espacios
+
 }
 
 // Función para agregar amigos a la lista
@@ -28,6 +28,7 @@ function agregarAmigo() {
 
     input.value = ""; // Limpiar el campo de entrada
     manejarBoton(); // Deshabilitar el botón hasta que se ingrese un nuevo nombre
+    
 }
 
 // Función para sortear un amigo de manera aleatoria
@@ -38,7 +39,8 @@ function sortearAmigo() {
     }
 
     // Sorteo aleatorio
-    let ganador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
-
-    asignarTextoElemento("#resultado", `El ganador es: ${ganador}`);
+    let indiceDeAmigoGanador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+    console.log(indiceDeAmigoGanador)
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = `El amigo secreto es: ${indiceDeAmigoGanador}`
 }
