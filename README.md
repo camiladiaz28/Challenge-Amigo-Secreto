@@ -9,3 +9,7 @@ Este juego permite agregar nombre de participantes y luego realizar un sorteo al
     - Realiza el sorteo si hay al menos dos participantes y selecciona un ganador al azar, luego muestra el resultado.
 
 El código esta organizado en funciones separadas para mantener la claridad y facilitar el mantenimiento.
+
+
+https://github.com/user-attachments/assets/2243e1b9-b31b-485f-9b67-2cf4341a3a1c
+
