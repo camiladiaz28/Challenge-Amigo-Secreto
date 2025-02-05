@@ -1,12 +1,5 @@
 let listaAmigos = []; // Lista para almacenar los nombres
 
-// Función para habilitar o deshabilitar el botón de "Añadir"
-function manejarBoton() {
-    let input = document.getElementById("amigo");
-    let boton = document.querySelector(".button-add");
-
-}
-
 // Función para agregar amigos a la lista
 function agregarAmigo() {
     let input = document.getElementById("amigo");
@@ -27,9 +20,7 @@ function agregarAmigo() {
     lista.appendChild(li);
 
     input.value = ""; // Limpiar el campo de entrada
-    manejarBoton(); // Deshabilitar el botón hasta que se ingrese un nuevo nombre
-    
-}
+    }
 
 // Función para sortear un amigo de manera aleatoria
 function sortearAmigo() {
