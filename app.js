@@ -38,4 +38,3 @@ function mostrarResultado(ganador) {
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = "<li>🎉 El amigo secreto es: <strong>" + ganador + "</strong> 🎉</li>"
 }
-//Funcion principal
